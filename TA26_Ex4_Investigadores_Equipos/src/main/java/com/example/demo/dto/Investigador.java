@@ -29,13 +29,9 @@ public class Investigador {
 	
     @ManyToOne
     @JoinColumn(name = "cod_facultad")
-    //@JsonIgnore
     private Facultad facultad;
 	
-	//@OneToMany
-    //@JoinColumn(name="id")
 	@JsonIgnore
-    @JsonIgnoreProperties("investigadores")
     @OneToMany(mappedBy = "investigador", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reserva> reservas;
 	
@@ -75,8 +71,6 @@ public class Investigador {
 		this.facultad = facultad;
 	}
 
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Reserva")
 	public List<Reserva> getReservas() {
 		return reservas;
 	}

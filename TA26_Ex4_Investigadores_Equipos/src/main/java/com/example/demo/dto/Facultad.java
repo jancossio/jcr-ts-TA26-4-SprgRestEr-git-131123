@@ -15,7 +15,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="facultad")
+@Table(name="facultades")
 public class Facultad {
 
 	@Id
@@ -25,17 +25,11 @@ public class Facultad {
 	@Column(name = "nombre")
 	private String nombre;
 	
-	//@OneToMany(mappedBy="facultad")
-	//@OneToMany
 	@OneToMany(mappedBy = "facultad")  
-    //@JoinColumn(name="num_serie")
 	@JsonIgnore
     private List<Equipo> equipos;
 	
-	//@OneToMany(mappedBy="facultad")
-	//@OneToMany
 	@OneToMany(mappedBy = "facultad")  
-    //@JoinColumn(name="dni")
 	@JsonIgnore
     private List<Investigador> investigadores;
 
@@ -55,8 +49,6 @@ public class Facultad {
 		this.nombre = nombre;
 	}
 
-	//@JsonIgnore
-	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "Equipo")
 	public List<Equipo> getEquipos() {
 		return equipos;
 	}
@@ -65,8 +57,6 @@ public class Facultad {
 		this.equipos = equipos;
 	}
 
-	//@JsonIgnore
-	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "Investigador")
 	public List<Investigador> getInvestigadores() {
 		return investigadores;
 	}

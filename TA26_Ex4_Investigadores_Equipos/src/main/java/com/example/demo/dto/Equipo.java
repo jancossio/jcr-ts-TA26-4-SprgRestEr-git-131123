@@ -22,7 +22,6 @@ import jakarta.persistence.Table;
 public class Equipo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "num_serie")
 	private String id;
 	@Column(name = "nombre")
@@ -30,13 +29,10 @@ public class Equipo {
 	
     @ManyToOne
     @JoinColumn(name = "cod_facultad")
-    //@JsonIgnore
     private Facultad facultad;
 	
     @JsonIgnoreProperties("equipos")
     @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, orphanRemoval = true)
-	//@OneToMany
-    //@JoinColumn(name="id")
 	@JsonIgnore
     private List<Reserva> reservas;
 	
@@ -77,8 +73,6 @@ public class Equipo {
 		this.facultad = facultad;
 	}
 
-	//@JsonIgnore
-	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "Reserva")
 	public List<Reserva> getReservas() {
 		return reservas;
 	}

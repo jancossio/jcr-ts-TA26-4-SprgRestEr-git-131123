@@ -20,8 +20,8 @@ public class EquipoServiceImpl implements IEquipoService{
 	}
 	
 	@Override
-	public Equipo guardarEquipo(Equipo cajero) {
-		return iEquipoDAO.save(cajero);
+	public Equipo guardarEquipo(Equipo equipo) {
+		return iEquipoDAO.save(equipo);
 	}
 	
 	@Override
@@ -30,8 +30,8 @@ public class EquipoServiceImpl implements IEquipoService{
 	}
 	
 	@Override
-	public Equipo actualizarEquipo(Equipo cajero) {
-		return iEquipoDAO.save(cajero);
+	public Equipo actualizarEquipo(Equipo equipo) {
+		return iEquipoDAO.save(equipo);
 	}
 	
 	@Override

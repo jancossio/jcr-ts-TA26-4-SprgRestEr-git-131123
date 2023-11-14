@@ -2,6 +2,7 @@ package com.example.demo.dto;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -16,7 +17,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name="reserva")
+@Table(name="reservas")
 public class Reserva {
 
 	@Id
@@ -24,21 +25,20 @@ public class Reserva {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	//@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "comienzo")
     private Date comienzo;
-	//@Temporal(TemporalType.TIMESTAMP)
+
 	@Column(name = "fin")
     private Date fin;
 	
+	//@JsonIgnore
 	@ManyToOne
     @JoinColumn(name = "num_equipo")
-    @JsonIgnoreProperties("reserva")
+    //@JsonIgnoreProperties("reservas")
 	private Equipo equipo;
  
     @ManyToOne
     @JoinColumn(name = "dni_investigador")
-    @JsonIgnoreProperties("reserva")
     private Investigador investigador;
     
 
